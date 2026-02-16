@@ -26,6 +26,10 @@ export const renderTasks = (state, filter, searchQuery) => {
         }
     });
 
+    const numTasks = document.querySelector('.todo__nums-tasks');
+    const allTasks = filteredTasks.length;
+    numTasks.textContent = allTasks;
+
     if (filteredTasks.length === 0) {
         listElement.innerHTML = '<li class="todo__empty">Ничего не найдено</li>';
         return;
@@ -59,8 +63,4 @@ export const renderTasks = (state, filter, searchQuery) => {
 
         listElement.appendChild(li);
     })
-
-    const numTasks = document.querySelector('.todo__nums-tasks');
-    const allTasks = filteredTasks.length;
-    numTasks.textContent = allTasks;
 }

@@ -67,8 +67,6 @@ export const initEventListeners = () => {
         }
     });
 
-
-
     listElements.addEventListener('change', event => {
         const checkbox = event.target.closest('.todo-item__checkbox');
         if (!checkbox) return;
