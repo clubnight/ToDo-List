@@ -43,19 +43,3 @@ export const clearAll = () => {
     state.length = 0;
     saveToStorage(state);
 }
-
-export const reorderStateByIds = (ids) => {
-    const newState = [];
-
-    ids.forEach(id => {
-        const task = state.find(item => item.id === id);
-        if (task) {
-            newState.push(task);
-        }
-    });
-
-    state.length = 0;
-    state.push(...newState);
-
-    saveToStorage(state);
-}
