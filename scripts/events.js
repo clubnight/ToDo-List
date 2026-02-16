@@ -40,16 +40,34 @@ export const initEventListeners = () => {
         modalElement.close()
     })
 
-    listElements.addEventListener('pointerup', event => {
-
+    listElements.addEventListener('click', event => {
         const deleteItemElement = event.target.closest('.todo-item__delete-button');
 
         if (deleteItemElement) {
             const id = deleteItemElement.dataset.id;
             deleteTask(id);
             renderTasks(state, settings.filter, settings.searchQuery);
+            return;
         }
-    })
+
+        const li = event.target.closest('.todo__item');
+        if (!li) return;
+
+        if (event.target.classList.contains('todo-item__checkbox')) return;
+
+        const checkbox = li.querySelector('.todo-item__checkbox');
+        if (!checkbox) return;
+
+        checkbox.checked = !checkbox.checked;
+
+        toggleTask(checkbox.dataset.id);
+
+        if (settings.filter !== 'all' || settings.searchQuery) {
+            renderTasks(state, settings.filter, settings.searchQuery);
+        }
+    });
+
+
 
     listElements.addEventListener('change', event => {
         const checkbox = event.target.closest('.todo-item__checkbox');

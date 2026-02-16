@@ -83,6 +83,10 @@
         position: relative;
     }
 
+    &__item {
+        cursor: pointer;
+    }
+
     &__info {
         display: flex;
         justify-content: space-between;

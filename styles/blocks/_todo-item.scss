@@ -116,7 +116,6 @@
         background-color: var(--color-gray-4);
         scale: 1.05;
         transform: rotate(0.4deg);
-        cursor: grabbing;
         position: absolute;
         z-index: 1000;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -133,7 +132,6 @@
     height: var(--input-height);
     column-gap: var(--gap);
     transition-duration: var(--transition-duration);
-    cursor: grab;
     touch-action: none;
     user-select: none;
 }
