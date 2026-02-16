@@ -27,8 +27,9 @@ export const renderTasks = (state, filter, searchQuery) => {
     });
 
     if (filteredTasks.length === 0) {
-    listElement.innerHTML = '<li class="todo__empty">Ничего не найдено</li>';
-}
+        listElement.innerHTML = '<li class="todo__empty">Ничего не найдено</li>';
+        return;
+    }
 
     filteredTasks.forEach(task => {
         const li = document.createElement('li');
@@ -40,12 +41,14 @@ export const renderTasks = (state, filter, searchQuery) => {
         checkbox.type = 'checkbox';
         checkbox.checked = task.completed;
         checkbox.dataset.id = task.id;
+        const checkboxId = `task-${task.id}`;
+        checkbox.id = checkboxId;
         li.appendChild(checkbox);
 
         const label = document.createElement('label');
         label.className = 'todo-item__label';
         label.textContent = task.text;
-        
+        label.setAttribute('for', checkboxId);
         li.appendChild(label);
 
         const deleteButton = document.createElement('button');

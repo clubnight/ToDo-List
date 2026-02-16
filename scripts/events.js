@@ -43,22 +43,21 @@ export const initEventListeners = () => {
     listElements.addEventListener('pointerup', event => {
 
         const deleteItemElement = event.target.closest('.todo-item__delete-button');
-        const isCheckbox = event.target.classList.contains('todo-item__checkbox');
 
         if (deleteItemElement) {
             const id = deleteItemElement.dataset.id;
-            deleteTask(id)
-            renderTasks(state, settings.filter, settings.searchQuery)
-
-            return;
-        }
-
-        if (isCheckbox) {
-            const id = event.target.dataset.id;
-            toggleTask(id);
-            renderTasks(state, settings.filter, settings.searchQuery)
+            deleteTask(id);
+            renderTasks(state, settings.filter, settings.searchQuery);
         }
     })
+
+    listElements.addEventListener('change', event => {
+        const checkbox = event.target.closest('.todo-item__checkbox');
+        if (!checkbox) return;
+
+        toggleTask(checkbox.dataset.id);
+    });
+
 
     filterElements.addEventListener('click', event => {
         const targetButton = event.target.closest('[data-filter]');
