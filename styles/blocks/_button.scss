@@ -1,0 +1,25 @@
+@use '../helpers' as *;
+
+.button {
+    padding: rem(5) rem(10);
+    border: rem(1) solid var(--color-gray-4);
+    background-color: var(--color-gray-2);
+    border-radius: var(--border-radius);
+    transition-duration: var(--transition-duration);
+
+    @include hover {
+        background-color: var(--color-gray-3);
+    }
+
+    &:active {
+        scale: 1.05;
+    }
+
+    &--active {
+        background-color: var(--color-gray-3);
+
+        @include hover {
+            scale: 1.1;
+        }
+    }
+}

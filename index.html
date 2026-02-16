@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <div class="todo container">
+        <div class="todo__wrapper">
+            <h1 class="todo__title">Список задач</h1>
+            <form class="todo__form">
+                <div class="todo__field field">
+                    <label class="field__label" for="new-task">Добавить новую задачу</label>
+                    <input class="field__input" id="new-task" placeholder=" " autocomplete="off">
+                </div>
+                <button class="todo__button-add" type="submit" aria-label="добавить задачу"></button>
+            </form>
+            <form class="todo__form todo__form--search">
+                <div class="todo__field field">
+                    <label class="field__label" for="search-task">Найти задачу</label>
+                    <input class="field__input" id="search-task" type="search" placeholder=" " autocomplete="off">
+                </div>
+            </form>
+            <div class="todo__info">
+                <div class="todo__total-task">Всего задач: <span class="todo__nums-tasks">0</span></div>
+                <button class="todo__button-delete-all button" type="button">Удалить все</button>
+            </div>
+            <div class="todo__filter">
+                <button class="todo__button-show-all button" type="button" data-filter="all">Все</button>
+                <button class="todo__button-show-active button" type="button" data-filter="active">Активные</button>
+                <button class="todo__button-show-completed button" type="button"
+                    data-filter="completed">Завершенные</button>
+            </div>
+            <ul class="todo__list">
+            </ul>
+        </div>
+    </div>
+
+    <dialog class="todo__modal modal">
+        <div class="modal__content">
+            <p>Удалить все задачи?</p>
+            <div class="modal__button-wrapper">
+                <button class="modal__button button" id="modal-yes">Да</button>
+                <button class="modal__button button" id="modal-no">Нет</button>
+            </div>
+        </div>
+    </dialog>
+    <script src="scripts/main.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+@use '../helpers' as *;
+
+.modal {
+    width: rem(300);
+    height: rem(150);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+   &[open] {
+        animation: fadeIn var(--transition-duration) ease-out;
+    }
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    &[open]::backdrop {
+        animation: fadeInBackdrop var(--transition-duration) ease-out;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    &__button-wrapper {
+        display: flex;
+        column-gap: rem(20);
+    }
+
+    &__button {
+        width: rem(60);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(rem(-20));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBackdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

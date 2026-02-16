@@ -1,0 +1,25 @@
+@use 'helpers' as *;
+
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --color-dark: #2c2c2c;
+
+    --color-gray: #aba9a9;
+    --color-gray-2: #b3b3b3;
+    --color-gray-3: #f5f5f5;
+    --color-gray-4: #757575;
+    --color-gray-5: #e1e1e1;
+
+    --border: #{rem(1)} solid var(--color-gray);
+    --border-radius: #{rem(8)};
+
+    --gap: #{rem(10)};
+
+    --box-shadow: 0 4px 4px -4px rgba(12, 12, 13, 0.05), 0 16px 32px -4px rgba(12, 12, 13, 0.1);
+
+    --input-height: #{rem(40)};
+
+    --transition-duration: 0.2s;
+}

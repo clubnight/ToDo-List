@@ -1,0 +1,10 @@
+@use 'helpers' as *;
+
+.visually-hidden {
+    display: none;
+}
+
+.container {
+    max-width: rem(600);
+    margin: rem(20) auto;
+}

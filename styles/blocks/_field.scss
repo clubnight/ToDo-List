@@ -1,0 +1,53 @@
+@use '../helpers' as *;
+
+.field {
+    width: 100%;
+    position: relative;
+
+    &:has(.field__input:not(:placeholder-shown)) .field__label {
+        scale: 0.7;
+        translate: rem(-10) rem(-35);
+        color: var(--color-black);
+    }
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: rem(15);
+        color: var(--color-gray-2);
+        translate: 0 -50%;
+        transform-origin: left top;
+    }
+
+    &__input {
+        width: 100%;
+        height: var(--input-height);
+        border-radius: var(--border-radius);
+        border: var(--border);
+        transition-duration: var(--transition-duration);
+        padding-inline: rem(15);
+
+        appearance: none;
+        -webkit-appearance: none;
+        line-height: 1;
+
+        @include hover {
+            border-color: var(--color-black);
+        }
+
+        &:focus {
+            background-color: var(--color-gray-5);
+        }
+
+        &[type="search"] {
+            padding-right: var(--gap);
+            background-position: right rem(15) top 50%;
+            background-size: rem(16);
+            background-repeat: no-repeat;
+
+            &:placeholder-shown {
+                background-image: url('./../icons/search.svg');
+            }
+        }
+    }
+}

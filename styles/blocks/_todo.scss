@@ -1,0 +1,99 @@
+@use '../helpers' as *;
+
+.todo {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--gap);
+        border: var(--border);
+        border-radius: var(--border-radius);
+        background-color: var(--color-white);
+        margin-inline: var(--gap);
+        padding: var(--gap);
+        box-shadow: var(--box-shadow);
+    }
+
+    &__title {
+        margin-bottom: rem(20);
+    }
+
+    &__form {
+        display: flex;
+        gap: rem(15);
+        width: 100%;
+
+        &--search {
+            margin-top: rem(20);
+        }
+    }
+
+    &__button-add {
+        background-color: var(--color-black);
+        height: var(--input-height);
+        position: relative;
+        width: rem(50);
+        border-radius: var(--border-radius);
+        border: none;
+        transition-duration: var(--transition-duration);
+
+        &:active {
+            scale: 1.05;
+        }
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            width: rem(5);
+            height: rem(20);
+            background-color: var(--color-white);
+            border-radius: rem(2);
+            top: 50%;
+            left: 50%;
+
+        }
+
+        &::after {
+            transform: translate(-50%, -50%)
+        }
+
+        &::before {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        @include hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+
+            &::after,
+            &::before {
+                scale: 1.05;
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--gap);
+        width: 100%;
+        position: relative;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: rem(20);
+
+    }
+
+    &__filter {
+        display: flex;
+        column-gap: var(--gap);
+    }
+}
